@@ -6,7 +6,7 @@ const Home = () => {
     <div
       name="home"
       className="h-screen w-full bg-cover bg-center bg-no-repeat overflow-hidden relative"
-      style={{ backgroundImage: "url('public/images/bg.jpg')" }}
+      style={{ backgroundImage: "url('/bg.jpg')" }}
     >
       {/* Animated Circle */}
       <motion.div
