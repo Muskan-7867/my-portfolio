@@ -43,11 +43,20 @@ const Work = () => {
 
   return (
     <div className="w-full min-h-screen bg-gradient-to-b from-[#f5f5f5] to-[#e3d5ca] text-gray-800 py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+           <motion.div
+              className="absolute -bottom-16 -right-16 w-60 h-60 md:w-72 md:h-72 bg-[#f5f5f5] rounded-full opacity-30"
+              animate={{ 
+                scale: [1, 1.3, 1], 
+                opacity: [0.3, 0.6, 0.3], 
+                y: [0, -20, 0], 
+                x: [0, -15, 0] 
+              }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            />
+     <div className="max-w-7xl mx-auto p-8 flex flex-col items-center justify-center">
         {/* Title */}
         <motion.h2
-          className="text-3xl sm:text-4xl font-bold text-center mb-12"
+          className="text-4xl font-bold mb-12 tracking-wide border-b-4 border-[#6F5A4B] text-center"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
