@@ -8,35 +8,37 @@ const Home = () => {
       className="h-screen w-full bg-cover bg-center bg-no-repeat overflow-hidden relative"
       style={{ backgroundImage: "url('/bg.jpg')" }}
     >
+      {/* Overlay for better text readability */}
+      <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+      
       {/* Animated Circle */}
       <motion.div
-        className="absolute -bottom-20 -right-20 w-72 h-72 bg-[#f5f5f5] rounded-full opacity-30"
+        className="absolute -bottom-20 -right-20 md:-bottom-32 md:-right-32 w-56 h-56 md:w-72 md:h-72 bg-[#f5f5f5] rounded-full opacity-30"
         animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3], y: [0, -20, 0], x: [0, -15, 0] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
 
       {/* Content */}
-      <div className="mx-auto flex flex-col justify-center items-end h-full text-right p-4 sm:p-8">
-        <p className="text-[#202216] text-lg sm:text-xl md:text-2xl mr-2 sm:mr-4">
-          Hi, my name is
-        </p>
+      <div className="flex justify-center items-center h-full relative z-10">
+        <div className="text-left px-6 sm:px-12 lg:px-24 ml-32 md:ml-52 lg:ml-64">
+          <p className="text-white text-opacity-80 text-lg sm:text-xl md:text-2xl mb-2">
+            Hello, I&apos;m
+          </p>
 
-        <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold text-white">
-          Muskan
-        </h1>
+          <h1 className="text-5xl sm:text-7xl md:text-8xl font-bold text-white mb-4">
+            Muskan
+          </h1>
 
-        <h2 className="text-[10vw] sm:text-[7vw] md:text-7xl font-bold text-[#202216] leading-tight">
-          I&apos;m a Full Stack Developer
-        </h2>
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-black text-opacity-90 leading-tight mb-8">
+            Full Stack Developer
+          </h2>
 
-        <div>
           <button
-            className="mt-8 group border-2 border-[#202216] px-4 sm:px-6 py-2 sm:py-3 flex items-center justify-end hover:bg-[#202216] hover:text-white text-sm sm:text-base transition-all duration-300"
-            type="submit"
+            className="group border-2 border-white px-6 py-3 flex items-center justify-center hover:bg-white hover:text-[#202216] text-white transition-all duration-300"
           >
             View Work
             <span className="group-hover:rotate-90 duration-300">
-              <FaArrowRight className="ml-2 sm:ml-3" />
+              <FaArrowRight className="ml-3" />
             </span>
           </button>
         </div>
