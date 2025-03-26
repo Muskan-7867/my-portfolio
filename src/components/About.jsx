@@ -13,13 +13,18 @@ const About = () => {
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         {/* Title */}
-        <div className="text-center pb-12 md:pb-16">
-          <h2 className="text-[#202216] font-bold text-4xl sm:text-5xl border-b-4 border-[#6F5A4B] inline-block">
-            About Me
-          </h2>
-        </div>
+       
+           <motion.h2 
+                    className="text-3xl sm:text-4xl text-black font-bold mb-8 sm:mb-12 tracking-wide border-b-4 border-[#6F5A4B] text-center"
+                    initial={{ opacity: 0, y: -50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                  >
+                    About Me
+                  </motion.h2>
+     
 
         {/* Cards Section */}
         <div className="flex flex-col md:flex-row justify-center items-center gap-10">
@@ -58,7 +63,7 @@ const About = () => {
 
         {/* Footer Section */}
         <div className="mt-16 text-center">
-          <h3 className="text-3xl font-bold text-[#6F5A4B]">Hi, I'm Muskan 👋</h3>
+          <h3 className="text-3xl font-bold text-[#6F5A4B]">Hi, I&apos;m Muskan 👋</h3>
           <p className="text-[#202216] text-lg mt-4">
             Always eager to learn and build meaningful applications. Let’s
             connect and create something awesome together!
