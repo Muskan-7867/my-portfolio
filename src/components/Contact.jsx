@@ -81,7 +81,7 @@ const Contact = () => {
             className="w-full py-4 px-6 bg-[#6F5A4B] text-white font-bold rounded-lg shadow-md hover:bg-[#5a463b] transition-all duration-300 flex items-center justify-center gap-2"
             whileHover={{ scale: 1.05 }}
           >
-            Let's Collaborate 🚀
+            Let&apos;s Collaborate 🚀
           </motion.button>
         </form>
       </div>

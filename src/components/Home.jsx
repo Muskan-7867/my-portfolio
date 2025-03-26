@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const Home = () => {
   return (
     <div
-      name="home"
+      id="/"
       className="h-screen w-full bg-cover bg-center bg-no-repeat overflow-hidden relative"
       style={{ backgroundImage: "url('/bg.jpg')" }}
     >

@@ -2,9 +2,8 @@ import { useState } from "react";
 import { Briefcase, Code, Home, Mail, User, Menu, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { AiOutlineFileText } from "react-icons/ai";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar = ({ refs }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
 
@@ -14,6 +13,11 @@ const Sidebar = () => {
 
   const toggleCollapse = () => {
     setIsCollapsed(!isCollapsed);
+  };
+
+  const handleScroll = (section) => {
+    refs[section]?.current?.scrollIntoView({ behavior: "smooth" });
+    setIsOpen(false);  // Close sidebar on mobile after clicking
   };
 
   return (
@@ -42,7 +46,6 @@ const Sidebar = () => {
           isOpen ? "left-0" : "-left-[14rem] md:left-0"
         } ${isCollapsed ? "md:w-20" : "md:w-[14rem]"}`}
       >
-        {/* Header - only shown when not collapsed (desktop) or when open (mobile) */}
         <div className={`text-center border-b border-gray-700 pb-6 ${isCollapsed ? "hidden md:hidden" : "block"}`}>
           <h1 className="text-2xl font-bold tracking-tight">{"Muskan"}</h1>
           <p className="text-sm text-gray-400 mt-1">{"Web Developer"}</p>
@@ -53,28 +56,24 @@ const Sidebar = () => {
           <nav className="w-full border-b border-gray-700 py-8">
             <ul className="space-y-4">
               {[
-                { label: "Home", to: "/", icon: <Home size={20} /> },
-                { label: "About", to: "about", icon: <User size={20} /> },
-                { label: "Skills", to: "skills", icon: <Code size={20} /> },
-                { label: "Work", to: "work", icon: <Briefcase size={20} /> },
-                { label: "Contact", to: "contact", icon: <Mail size={20} /> },
+                { label: "Home", ref: "home", icon: <Home size={20} /> },
+                { label: "About", ref: "about", icon: <User size={20} /> },
+                { label: "Skills", ref: "skills", icon: <Code size={20} /> },
+                { label: "Work", ref: "work", icon: <Briefcase size={20} /> },
+                { label: "Contact", ref: "contact", icon: <Mail size={20} /> },
               ].map((item) => (
-                <li key={item.to}>
-                  <Link
-                    to={item.to}
-                    className={`flex items-center   text-gray-300 hover:text-[#6F5A4B] transition duration-300 cursor-pointer ${
+                <li key={item.label}>
+                  <button
+                    onClick={() => handleScroll(item.ref)}
+                    className={`flex items-center w-full text-gray-300 hover:text-[#6F5A4B] transition duration-300 cursor-pointer ${
                       isCollapsed ? "md:justify-center" : ""
                     }`}
-                    onClick={() => {
-                      setIsOpen(false);
-                    }}
                   >
                     <span className="w-6 flex justify-center">{item.icon}</span>
-                    {/* Show text always on mobile, only when not collapsed on desktop */}
                     <span className={`text-sm ml-4 ${isCollapsed ? "md:hidden" : ""}`}>
                       {item.label}
                     </span>
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -84,26 +83,10 @@ const Sidebar = () => {
           <div className="w-full border-t border-gray-700 py-8">
             <ul className="space-y-4">
               {[
-                {
-                  href: "https://linkedin.com/in/muskan-loach-70a956288",
-                  icon: <FaLinkedin size={20} />,
-                  label: "LinkedIn",
-                },
-                {
-                  href: "https://github.com/Muskan-7867",
-                  icon: <FaGithub size={20} />,
-                  label: "GitHub",
-                },
-                {
-                  href: "mailto:muskanloach984@gmail.com",
-                  icon: <Mail size={20} />,
-                  label: "Email",
-                },
-                {
-                  href: "https://drive.google.com/file/d/1b2ohDHV1PWO8R6n11eF9Vuk2nDUWFtsX/view",
-                  icon: <AiOutlineFileText size={20} />,
-                  label: "Resume",
-                },
+                { href: "https://linkedin.com/in/muskan-loach-70a956288", icon: <FaLinkedin size={20} />, label: "LinkedIn" },
+                { href: "https://github.com/Muskan-7867", icon: <FaGithub size={20} />, label: "GitHub" },
+                { href: "mailto:muskanloach984@gmail.com", icon: <Mail size={20} />, label: "Email" },
+                { href: "https://drive.google.com/file/d/1b2ohDHV1PWO8R6n11eF9Vuk2nDUWFtsX/view", icon: <AiOutlineFileText size={20} />, label: "Resume" },
               ].map((item) => (
                 <li key={item.label}>
                   <a
@@ -115,7 +98,6 @@ const Sidebar = () => {
                     }`}
                   >
                     <span className="w-6 flex justify-center">{item.icon}</span>
-                    {/* Show text always on mobile, only when not collapsed on desktop */}
                     <span className={`text-sm ml-4 ${isCollapsed ? "md:hidden" : ""}`}>
                       {item.label}
                     </span>
@@ -126,7 +108,7 @@ const Sidebar = () => {
           </div>
         </div>
 
-        {/* Footer - only shown when not collapsed */}
+        {/* Footer */}
         {!isCollapsed && (
           <div className="text-center text-xs text-gray-500 pt-6 mb-4 border-t border-gray-700">
             &copy; {new Date().getFullYear()} Muskan Loach. All rights reserved.
