@@ -5,7 +5,7 @@ const Contact = () => {
   return (
     <div className="w-full min-h-screen flex justify-center items-center text-gray-300 px-4 sm:px-8 py-12 md:py-24 bg-gradient-to-b from-[#f5f5f5] to-[#e3d5ca] relative overflow-hidden">
       <motion.div
-        className="absolute -top-32 -left-32 w-72 h-72  rounded-full opacity-30"
+        className="absolute -top-32 -left-32 w-72 h-72 bg-[#f5f5f5]  rounded-full opacity-30"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.5, 0.3],
@@ -25,11 +25,15 @@ const Contact = () => {
         }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
-      <div className="w-full max-w-[1000px] bg-white  rounded-2xl shadow-lg p-10 sm:p-16">
-        {/* Title */}
-        <h2 className="text-4xl font-bold text-center text-[#202216] mb-4">
-          Contact Me
-        </h2>
+      <div className="w-full max-w-[1000px] bg-opacity-40  rounded-2xl shadow-lg p-10 sm:p-16">
+        <motion.h2 
+                className="text-3xl sm:text-4xl max-w-7xl text-black font-bold mb-8 sm:mb-12 tracking-wide border-b-4 border-[#6F5A4B] text-center"
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                Contact Me
+              </motion.h2>
 
         <p className="text-center text-lg text-blue-600 mb-8 cursor-pointer hover:underline">
           learncodewith2004@gmail.com
