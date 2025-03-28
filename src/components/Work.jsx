@@ -8,7 +8,7 @@ const Work = () => {
       id: 1,
       image: "/images/works/chat.webp",
       title: "QuickTalk",
-      description: "Real-time chat app with instant messaging, E2EE, and video chat.",
+      description: "Real-time chat app with instant messaging,  and video chat.",
       demoLink: "https://quicktalk-nine.vercel.app/",
       codeLink: "https://github.com/Muskan-7867/QuickTalk",
       techStack: ["/images/skills/react.svg", "/images/skills/node.png", "/images/skills/socket.png", "/images/skills/mongodb.png"],
@@ -53,7 +53,7 @@ const Work = () => {
       forks: 15
     },
     {
-      id: 4,
+      id: 5,
       image: "/images/works/yt.avif",
       title: "YouTube ",
       description: "YouTube clone with search, video playback, and related content.",
@@ -63,6 +63,19 @@ const Work = () => {
       stars: 28,
       forks: 9
     },
+    // {
+    //   id: 6,
+    //   image: "/images/works/weather.jpg",
+    //   title: "SkyCast ",
+    //   description: "Cross-platform mobile app with offline support and push notifications",
+    //   demoLink: "https://expo.dev/your-project", 
+    //   codeLink: "https://github.com/your-repo",
+    //   techStack: [
+    //     "/images/skills/native.png",
+    //     "/images/skills/expo.png",
+        
+    //   ],
+    // }
   ];
 
   const featuredProjects = projects.filter(project => project.featured);
